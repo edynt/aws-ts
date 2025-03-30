@@ -1,7 +1,6 @@
 'use strict';
-import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import s3 from '../config/s3.config';
-import { GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3';
+import {PutObjectCommand } from '@aws-sdk/client-s3';
 
 export const uploadFileToS3 = async ({ file }) => {
   try {

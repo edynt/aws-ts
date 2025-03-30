@@ -1,6 +1,6 @@
 'use strict';
 import s3 from '../config/s3.config';
-import {PutObjectCommand } from '@aws-sdk/client-s3';
+import { PutObjectCommand } from '@aws-sdk/client-s3';
 
 export const uploadFileToS3 = async ({ file }) => {
   try {
@@ -14,7 +14,10 @@ export const uploadFileToS3 = async ({ file }) => {
       ContentType: 'image/jpeg',
     });
 
-    await s3.send(objectPutCommand);
+    const resPut = await s3.send(objectPutCommand);
+    if(resPut.$metadata.httpStatusCode !== 200) {
+      throw new Error('File upload failed');
+    }
 
     return `${process.env.AWS_CLOUDFRONT_PUBLIC_URL}/${imageName}`;
   } catch (err) {

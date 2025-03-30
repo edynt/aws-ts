@@ -1,6 +1,6 @@
 <!-- Note: If don't note, please set to default -->
 
-- Set up S3
+- Set up IAM
   -- Step 1: First, create policy
   -- Step 2: Select set role: 
     --- Read: GetObject
@@ -13,11 +13,14 @@
       ----- Set any object name
 
   -- Step 4: Policy name: <policy-name>
+        --- ARN: add <name-bucket>
 
   -- Step 5: Create IAM
       --- Choose Attach policies directly
       --- Create Access Key
 
+- Set up S3:
+  -- Please set default
 
 
 

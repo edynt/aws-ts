@@ -31,3 +31,13 @@
     --- Select Legacy access identities
     --- Create new OAI (là một cách giúp bạn bảo mật nội dung trên S3 khi phân phối qua CloudFront.)
     --  Bucket policy: Select Yes
+
+
+
+- Set up EC2 & mysql:
+  -- Cmd: 
+  -- Chạy lệnh để cài đặt các gói: sudo amazon-linux-extras install epel -y
+  --- Install mysql 8: sudo yum install https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
+  --- Cấu hình mysql server: sudo yum install mysql-community-server -y
+  --- Enable Mysql: sudo systemctl start mysqld
+  --- Check status mysql: sudo systemctl status mysqld

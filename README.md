@@ -37,7 +37,12 @@
 - Set up EC2 & mysql:
   -- Cmd: 
   -- Chạy lệnh để cài đặt các gói: sudo amazon-linux-extras install epel -y
-  --- Install mysql 8: sudo yum install https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
-  --- Cấu hình mysql server: sudo yum install mysql-community-server -y
-  --- Enable Mysql: sudo systemctl start mysqld
-  --- Check status mysql: sudo systemctl status mysqld
+  --- Download the MySQL 8.0 repository: wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+  --- Install mysql repo: sudo rpm -ivh mysql80-community-release-el7-3.noarch.rpm
+  --- Verify the MySQL repository has been added: sudo yum repolist enabled | grep "mysql.*-community"
+  --- Install MySQL 8.0: sudo yum install mysql-community-server -y
+  --- Start MySQL Service: sudo service mysqld start
+  --- Get the MySQL Root Password: sudo grep 'temporary password' /var/log/mysqld.log
+  --- Secure MySQL Installation: sudo mysql_secure_installation
+  --- Check MySQL Status: sudo service mysqld status
+  --- Login to Mysql: mysql -u root -p
